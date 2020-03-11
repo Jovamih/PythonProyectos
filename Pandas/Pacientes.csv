@@ -1,0 +1,4 @@
+idPaciente,nombre,apellido,fechaNacimiento,domicilio,idPais,telefono,Email,observacion,Dni
+1,johan,mitma,2000-10-12,SJM,PER,954966494,avira365@hotmail.com,Activo,74804782
+3,angie,jhomara,1998-12-30,SJL,PER,993224901,angie@hotmail.com,Activa,32344229
+4,carla,kodaline,1990-12-30,SJM,PER,998332455,kodaline@hotmail.com,Activa,89435527
