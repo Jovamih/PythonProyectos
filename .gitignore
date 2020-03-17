@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Personalizado pa a open-vd (pesa mucho asi que no quiero que se suba a github)
+opencv-master

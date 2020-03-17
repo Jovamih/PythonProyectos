@@ -8,8 +8,8 @@ def atributos():
     x2=np.random.randint(2,10,size=(3,5))
     x3=np.random.randint(2,10,size=(3,4,5))
    #ndim= Numero de dimesiones
-   #shape=Retorna el tamaño de las dimensiones
-   #size= El tamaño de las dimensiones
+   #shape=Retorna el tamaño de las dimensiones (a,b)
+   #size= El tamaño de las dimensiones (n de elementos)
    #dtype= tipo de elemento
    #itemsize=El tamaño de cada elemnto de la matriz
    #nbytes El tamaño total de la matriz en byte's

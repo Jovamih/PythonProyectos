@@ -31,6 +31,11 @@ def series_dict():
     #Se pueden especificar indices explicitos para cada tipo de dato pd.Series(data,index=[something,something])
     
 def dataframes():
+    #podemos crear dataframes atraves de:
+    #Series pd.DataFrame(serie,columns=['somthing_name'])
+    #2 o mas Series (exlicados aqui)
+    #Especializacion de diccionarios
+    #Matrices bidmensionales de Numpy np.DataFrame(np.random.randint(1,56,size=(2,3)),columns=['a','b','c'],index=[1,2])
     population_dict={'China':120000000,
                 'Peru':90000,
                 'Chile':89098830,
