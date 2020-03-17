@@ -57,8 +57,21 @@ def dataframes():
     data=pd.DataFrame(datos)
     print(data)
 
+def index():
+    #comparten propiedades similares a un array en Numpy
+    #como tambien sus atributos: ndim,shape,size,itemsize,nbytes
+    #tambien poseen metodos de interseccion a.intersection(b)
+    ind=pd.Index([12,23,89,5,24,2])
+    ind2=pd.Index([2,3,4,534,67])
+    print(ind)
+    print(ind2)
+    #son inmutables , error: ind[3]=9
+    #poseen operaciones -> Interseccion(&)| union(|) diferencia simetrica(^)
+    m=ind&ind2 #devuelve otro index
+    print(m)
 
 if __name__=="__main__":
     #series()
     #series_dict()
-    dataframes()
+    #dataframes()
+    index()
