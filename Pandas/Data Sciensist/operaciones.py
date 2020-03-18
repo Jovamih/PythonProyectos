@@ -28,7 +28,10 @@ def op_dataframe():
     df1= pd.DataFrame(np.random.randint(1,90,size=(4,5)),index=['a','b','c','d'],columns=['P1','P2','P3','P4','P5'])
 
     A=df1+df2
+    B=df1-df2.iloc[0]
+    #B=df1.sub(df2,axis=0)
     print(A)
+    print(B)
 
 
 if __name__=="__main__":
