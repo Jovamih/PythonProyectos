@@ -27,7 +27,7 @@ def dispersionAdvanced():
     color=rng.rand(100)
     size=100*rng.rand(100)
     
-    plt.scatter(x,y,c=color,s=size,alpha=0.5,cmap='viridis')
+    plt.scatter(x,y,c='green',s=size,alpha=0.5,cmap='viridis')
     plt.axis('tight')
     plt.colorbar()
     plt.show()
