@@ -21,7 +21,7 @@ def Graphic():
     plt.show()
 
 
-def Garphic2():
+def Graphic2():
     pass
 
 if __name__=="__main__":
