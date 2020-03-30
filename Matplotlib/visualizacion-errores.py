@@ -3,7 +3,7 @@
 import numpy  as np 
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.gaussian_process import GaussianProcess
+#from sklearn.gaussian_process import GaussianProcess
 
 plt.style.use('seaborn-whitegrid')
 def visualizacion():
