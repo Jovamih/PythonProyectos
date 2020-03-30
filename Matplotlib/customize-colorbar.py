@@ -23,6 +23,7 @@ def Graphic2():
     plt.scatter([],[],c=['lista de colores'],s=['lista de tamaños'],cmap=plt.cm.get_cmap('viridis',5))
 
     plt.colorbar(ticks=range(12),label='something here!')
+    plt.clim(-12,12) #podemos usar esta uncion para ajustar el rango del color bar
     #podemos usar la funcion plt.cm.get_cmap() para obtener cmap's
 if __name__=="__main__":
     Graphic()
