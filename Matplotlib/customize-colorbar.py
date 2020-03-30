@@ -14,7 +14,14 @@ def Graphic():
     plt.show()
     
 def Graphic2():
-    pass
+    #elegir mapa  colores: Existen 3 categorias para elegir mapas de colores
+    #mc: secuenciales, usando una continua secuencia de colores (binary,viridis)
+    #mc: divergentes, usan  dos colores que muestran las desviacion positiva y negativa de una media
+    #mc: cualitativos mezclan colores sin una secuencia en particular
+    
+    #fragmento de ejemplos
+    plt.scatter([],[],c=['lista de colores'],s=['lista de tamaños'],cmap=plt.cm.get_cmap('viridis',5))
 
+    #podemos usar la funcion plt.cm.get_cmap() para obtener cmap's
 if __name__=="__main__":
     Graphic()
