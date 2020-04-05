@@ -23,6 +23,23 @@ def op_series():
     A=dat1.add(dat2,fill_value=0)
     print(A)
 #alineacion de indices en dataframes
+#podemos hacer operaciones Pandas con funciones personalizadas de estos mismos
+# (+) : add()
+# (-) : sub() o substract()
+# (*) : mul() o multiply()
+# (/) : div(), divide() o truediv()
+# (//): Division entera-> floordivide()
+# (%) : mod()
+#(**) : pow()
+#pandas permite usar estas funciones atraves de los objetos mismos a diferencia de Numpy
+# Por ejemplo
+# para multiplicar (*) : en Numpy np.mupltiply(A,B), pero en pandas A.multiply(B)
+
+#con la facilidad de poder agregar valores de relleno en caso no se puedan alinear los indices en la operacion
+#esto gracias al paramatro fill_value que se encuentra embebido en cada funcion de operador de pandas
+#A.sub(B,fill_value=0) ojo: funciona entrea operaciones de 2 dataframes
+
+
 def op_dataframe():
     df2= pd.DataFrame(np.random.randint(1,90,size=(4,5)),index=['a','b','c','d'],columns=['P1','P2','P3','P4','P5'])
     df1= pd.DataFrame(np.random.randint(1,90,size=(4,5)),index=['a','b','c','d'],columns=['P1','P2','P3','P4','P5'])
