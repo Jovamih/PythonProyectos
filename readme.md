@@ -1,4 +1,4 @@
-##Acerca del Proyecto
+## Acerca del Proyecto
 
 Este proyecto fue creado como parte de una ruta de aprendizaje hacia la Ciencia de Datos
 y en su transcurso cuenta con ejemplos de diseño y remodelamento de datos atraves de 
@@ -9,9 +9,9 @@ y hasta el momento se encuentra en actualizacion ,porque si bien posee en su est
 
 El contenido del librp de dilusida a traves de las carpetas
 
-*Numpy
-*Pandas/DataScience
-*Matplotlib
+* Numpy
+* Pandas/DataScience
+* Matplotlib
 
 y todo lo demas coresponde a mi propio aprenizaje de Python en la ciencia de datos.
 
