@@ -24,19 +24,16 @@ def search_word(word=str(),start=str(),end=str()):
     return None
 def search_advanced_word(word=str(),start=str(),end=str()):
     currency=list()
-    print("point1")
-    print("start {0}, end {1},words {2}".format(len(start),len(end),len(word)))
     while len(start)+len(end)<len(word):
-        print("point2")
+
         first=word.find(start)
         if first!=-1:
             word=word[first+len(start):]
-            print("Se encontro inicio")
             last=word.find(end)
             if last!=-1:
                 currency.append(word[:last])
                 word=word[last+len(end):]
-                print("se encontro final")
+
             else: break
         else :
             break
