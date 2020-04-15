@@ -73,21 +73,21 @@ def main(path=str()):
         #ahora obtenemos el cuerpo
         
         tbody=search_advanced_word(table,start='<tbody>',end='</tbody>')
-        print(len(tbody))
         #como solo tiene un cuerpo obtenemos el primer elemento y obtenemos las lista de filas
         rows=search_advanced_modified(tbody[0],start='<tr',end='</tr>')
         #ahora una vez obtenido la lista de filas obtendremos los elemento que corresponden
         #a cada columna
         print("\tT{0}: {1} Filas encontradas".format(i+1,len(rows)))
-        for row in rows:
+        for count,row in enumerate(rows):
             #obtenemos los datos de cada fila
             data=search_advanced_modified(row,start='<td>',end='</td>')
             #y luego los agregamos
             datarows.append(data)
+            print("\r\t\t{0} filas leidas".format(count+1),end="")
 
         csvdata=pd.DataFrame(datarows,columns=columns)
         csvdata.to_csv(filename.format(i))
-        print('\tTabla {0} creada correctamente como {1}'.format(i+1,filename.format(i)))
+        print('\n\tTabla {0} creada correctamente como {1}'.format(i+1,filename.format(i)))
         
 if __name__=="__main__":
     import sys
