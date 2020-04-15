@@ -138,7 +138,7 @@ Pytest/BicycleWeather.html
 .vscode/settings.json
 Machine Learning\.ipynb_checkpoints
 #Ignorar archivos en pytest
-*.png 
-*.jpg
-*.webp 
+Pytest/*.png 
+Pytest/*.jpg
+Pytest/*.webp 
 
