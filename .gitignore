@@ -133,3 +133,5 @@ opencv-master
 Pytest/girls.webp
 #añado exlusiones entorno vscode
 .vscode
+#Exclusiones de archivode prueba del progama
+Pytest/BicycleWeather.html
