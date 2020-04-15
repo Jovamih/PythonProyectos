@@ -132,8 +132,13 @@ dmypy.json
 opencv-master
 Pytest/girls.webp
 #añado exlusiones entorno vscode
-.vscode/
+.vscode
 #Exclusiones de archivode prueba del progama
 Pytest/BicycleWeather.html
 .vscode/settings.json
 Machine Learning\.ipynb_checkpoints
+#Ignorar archivos en pytest
+*.png 
+*.jpg
+*.webp 
+
