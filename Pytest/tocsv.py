@@ -12,7 +12,7 @@
 #3 funcion que identifique las filas de una tabla html
 #4 funcion principal que integre las demas funciones y escribba en fichero csv
 
-import pandas as pd
+import csv
 
 def search_word(word=str(),start=str(),end=str()):
     first=word.find(start)
@@ -24,9 +24,8 @@ def search_word(word=str(),start=str(),end=str()):
     return None
 def search_advanced_word(word=str(),start=str(),end=str()):
     currency=list()
-   
     while len(start)+len(end)<len(word):
-       
+
         first=word.find(start)
         if first!=-1:
             word=word[first+len(start):]
@@ -34,6 +33,7 @@ def search_advanced_word(word=str(),start=str(),end=str()):
             if last!=-1:
                 currency.append(word[:last])
                 word=word[last+len(end):]
+                print("1era y2da coincidencia encontrada")
 
             else: break
         else :
@@ -49,6 +49,9 @@ def search_advanced_modified(word=str(),start=str(),end=str()):
 
 
 def main(path=str()):
+    os.chdir(os.path.dirname(path))
+    filename=os.path.basename(path)
+    filename=filename[:filename.rfind(os.path.extsep)]+"{0}.csv"
     with open(path,'r') as f:
         data=f.readlines()
     data=[line.strip() for line in data]
@@ -65,13 +68,17 @@ def main(path=str()):
         #asi que primero obtenemos la cabezera y de ahi obtendremos el nombre de las columnas
         thead=search_advanced_word(table,start='<thead>',end='</thead>') #lista de cabezeras
         # como solo tiene una, obtenemos el primer elemento y obtenms las columnas
-        columns=search_advanced_word(thead[0],start='<th>',end='</th>')
+        print("Thead {}".format(thead[0]))
+        columns=search_advanced_modified(thead[0],start='<th',end='</th>')
+        print("Columnas".center(10,"-"))
+        print(columns)
+        datarows.append(columns)
         #ahora obtenemos el cuerpo
         
         tbody=search_advanced_word(table,start='<tbody>',end='</tbody>')
         print(len(tbody))
         #como solo tiene un cuerpo obtenemos el primer elemento y obtenemos las lista de filas
-        rows=search_advanced_modified(tbody[0],start='<tr',end='</th>')
+        rows=search_advanced_modified(tbody[0],start='<tr',end='</tr>')
         #ahora una vez obtenido la lista de filas obtendremos los elemento que corresponden
         #a cada columna
         print("{} fila encontradas".format(len(rows)))
@@ -80,19 +87,22 @@ def main(path=str()):
             data=search_advanced_word(row,start='<td>',end='</td>')
             #y luego los agregamos
             datarows.append(data)
-        dataset=pd.DataFrame(datarows,columns=columns)
-        dataset.to_csv('data {0}.csv'.format(i+1))
+
+        with open(filename.format(i),"w") as f:
+            writer=csv.writer(f)
+            writer.writerows(rows)
         print('Tabla {0} creada correctamente'.format(i+1))
         
 if __name__=="__main__":
     import sys
     import os
     
-    if len(sys.argv)<2:
-        print('File or text not Found')
+    """if len(sys.argv)<2:
+        print('<path> Parameter not found')
         sys.exit(0)
     
     if not os.path.isfile(sys.argv[1]):
-        print("El archivo no existe")
-        sys.exit(0)
-    main(sys.argv[1])
+        print("La ruta especificada hace alusion a un archivo que no existe")
+        sys.exit(0)"""
+    main(r"d:\fits\data.html")
+    

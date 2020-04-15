@@ -1,4 +1,4 @@
-# Byte-compiled / optimized / DLL files
+﻿# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -128,10 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#Personalizado pa a open-vd (pesa mucho asi que no quiero que se suba a github)
+#Personalizado para open-cv (pesa mucho asi que no quiero que se suba a github)
 opencv-master
 Pytest/girls.webp
 #añado exlusiones entorno vscode
-.vscode
+.vscode/
 #Exclusiones de archivode prueba del progama
 Pytest/BicycleWeather.html
+.vscode/settings.json
