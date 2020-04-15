@@ -135,6 +135,7 @@ Pytest/girls.webp
 .vscode
 #Exclusiones de archivode prueba del progama
 Pytest/BicycleWeather.html
+Pytest\BicycleWeather0.csv
 .vscode/settings.json
 Machine Learning\.ipynb_checkpoints
 #Ignorar archivos en pytest
