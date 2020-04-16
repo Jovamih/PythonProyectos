@@ -52,8 +52,8 @@ def main(path=str()):
     filename=os.path.basename(path)
     filename=filename[:filename.rfind(os.path.extsep)]+"{0}.csv"
     with open(path,'r') as f:
-        data=f.readlines()
-    data=[line.strip() for line in data if line]
+        data=f.read()
+    data=[line.strip() for line in data.split("\n") if line]
     texto="".join(data)
     #print(texto)
     #primeo buscamos las tablas
