@@ -137,7 +137,8 @@ Pytest/girls.webp
 Pytest/BicycleWeather.html
 Pytest/BicycleWeather0.csv
 .vscode/settings.json
-Machine Learning\.ipynb_checkpoints
+Machine Learning/.ipynb_checkpoints
+Untitled Folder
 #Ignorar archivos en pytest
 Pytest/*.png 
 Pytest/*.jpg
