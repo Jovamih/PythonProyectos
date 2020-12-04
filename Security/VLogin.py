@@ -16,4 +16,4 @@ def name_validate(name=str()):
 def pass_validate(pwd=str()):
     mayus,minus,space,num=False,False,False,False
     if len(pwd)>=8:
-        
+        pass

@@ -2,9 +2,11 @@
 import cv2
 import numpy as np 
 import sys
+from os import path
 
 def face_advanced(video):
-    scalePath=r'haarcascade_frontalface_alt.xml'
+    scalePath=r"c:/user/Projects/PythonPoyectos/Intellicense/haarcascade_frontalface_alt.xml"
+    print(scalePath)
     face_scale= cv2.CascadeClassifier(scalePath)
     
     while video.isOpened():
@@ -32,7 +34,7 @@ def face_advanced(video):
         
 if __name__=="__main__":
     if len(sys.argv)<2:
-        video=cv2.VideoCapture(0)
+        video=cv2.VideoCapture(0,cv2.CAP_DSHOW)
     else:
         video=cv2.VideoCapture(sys.argv[1])
     try:
