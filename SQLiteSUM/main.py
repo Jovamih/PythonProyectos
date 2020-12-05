@@ -1,4 +1,4 @@
-from sqliteConnection import *
+from sqlite_manager import *
 
 def main():
     #cargamos la conexion y las consultas
