@@ -1,10 +1,9 @@
 {
-    "querysSelect":[
+    "querys":[
         "select * from CLIENTE",
-        "select * from EMPLEADO"
-    ],
-    "querysNonSelect":[
+        "select * from EMPLEADO",
         "update CLIENTE set CIUDAD='peru' where NOMBRE like '%Simon%'",
         "insert into PROVEEDOR values(1000000,'petroperu','counting stars') "
     ]
+
 }

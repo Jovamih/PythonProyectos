@@ -1,18 +1,18 @@
 import sqlite3
 from sqlite3 import Error
 import os
-import json 
+import json,sys
 import subprocess 
 """
 Preparamos el uso para la importacion de libreria de probablemente faltantes
 """
 try:
     import prettytable
-except ImportError:
+except ModuleNotFoundError:
     print("[*] Instalando el paquete 'prettytable'")
-    subprocess.check_call([sys.executable,'-m','pip','install','prettytable','-y'])
+    subprocess.check_call([sys.executable,'-m','pip','install','prettytable'])
 finally:
-    from prettytable import Prettytable 
+    from prettytable import PrettyTable 
 
 #clase creda para tener la conexion a la base de datos lite
 class SQLite3Database(object):
@@ -38,28 +38,32 @@ class SQLite3Services(object):
     """
     Servicios de administracion de la base de datos
     """
-    def __init__(self,connection):
-        self.connection=connection
-        self.cursorObj=self.connection.cursor()
-    
-    def executeQuery(self,query):
-        self.cursorObj.execute(query)
-        rows=self.cursorObj.fetchall()
-        return rows 
-        
-    def executeNonQuery(self,query):
-        self.cursorObj.execute(query)
-        if self.cursorObj.rowcount<0:
-            print("[-] La consulta no se realizo satisfactoriamente")
-        else:
-            # self.connection.commit()
-             print("[+] Query exitoso")
-        return self.cursorObj.rowcount
-        
+    @staticmethod
+    def executeQuery(connection,querys):
+        """
+        Recibe como parametro un lista de querys a evaluar
+        """
+        cursorObj=connection.cursor()
+        for i,query in enumerate(querys):
+            print("\nQuery {0} : {1}\n".format(i+1,query))
+            if query.lstrip().upper().startswith('SELECT'): #verificamossi pertenece a un select
+                cursorObj.execute(query)               #ejecutamos la consulta
+                column_names=[tup_column[0] for tup_column in cursorObj.description]
+                content_rows=cursorObj.fetchall()
+                #creamos las tablas
+                table=PrettyTable(column_names)
+                table.add_rows(content_rows)
+                print(table)
+                print("{0} Rows affected".format(len(content_rows)))
+            else:
+                #para consultas diferentes de SELECT
+                cursorObj.execute(query)
+                print("{0} Rows affected".format(cursorObj.rowcount))
+        #connection.commit()  #importante descomentar esto cuando el programa este listo
 def load_querys(name):
     with open(name,mode='r') as f:
-        fjson=json.load(f)
-    return fjson
+        fjson=json.load(f) 
+    return fjson['querys']
 
 
         

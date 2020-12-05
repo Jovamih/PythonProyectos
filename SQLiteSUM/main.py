@@ -1,31 +1,19 @@
 from sqliteConnection import *
-import sys,os 
 
+def main():
+    #cargamos la conexion y las consultas
+    connection=SQLite3Database.get_connection(r"Database\myDatabase.db")
+    querys=load_querys(r'querys.json')
+    print("[+] Lista de consultas cargadas correctamente")
+    SQLite3Services.executeQuery(connection,querys)
+    #finalizacion del programa
+    print("Consultas existosas")
 if __name__=="__main__":
-    pathDatabase=r"Database\myDatabase.db"
-    conn=SQLite3Database.get_connection(pathDatabase)
-    if not conn:
-        sys.exit(0)
-        #atendemos el servicio
-    service=SQLite3Services(conn)
-    #obtenemos la lista de querys
-    pathQuerys=r"querys.json"
-    queryList=load_querys(pathQuerys)
-    print("[+] Lista de consultas crgadas correctamente")
-    #iteramos sobre las listas para determinar las consultas
-    #para consultas SELECT (porque devuelven resultados)
-    print(" CONSULTAS SELECT ".center(30,"="))
-    for query in queryList["querysSelect"]:
-        print(">>>> {0}\n".format(query))
-        resultRows=service.executeQuery(query)
-        for row in resultRows:
-            print(row)
-        print("{0} Rows affected".format(len(resultRows)))
-    #para los demas tipos de consultas
-    print(" CONSULTAS INSERT,UPDATE,DELETE".center(40,"="))
-    for query in queryList["querysNonSelect"]:
-        print(">>>> {0}".format(query))
-        rowcount=service.executeNonQuery(query)    
-        print("{0} Rows affected".format(rowcount))
+    try:
+         main()
+    except Exception as e: 
+        print("Excepcion: {0}".format(e))
+        
+    
     
         
