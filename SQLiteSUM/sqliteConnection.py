@@ -1,7 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 import os
-import json,sys
+import sys
 import subprocess 
 """
 Preparamos el uso para la importacion de libreria de probablemente faltantes
@@ -62,8 +62,8 @@ class SQLite3Services(object):
         #connection.commit()  #importante descomentar esto cuando el programa este listo
 def load_querys(name):
     with open(name,mode='r') as f:
-        fjson=json.load(f) 
-    return fjson['querys']
+        list_querys=f.readlines()
+    return [ query.strip() for query in list_querys if query.strip()]
 
 
         
