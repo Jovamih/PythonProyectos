@@ -2,6 +2,17 @@ import sqlite3
 from sqlite3 import Error
 import os
 import json 
+import subprocess 
+"""
+Preparamos el uso para la importacion de libreria de probablemente faltantes
+"""
+try:
+    import prettytable
+except ImportError:
+    print("[*] Instalando el paquete 'prettytable'")
+    subprocess.check_call([sys.executable,'-m','pip','install','prettytable','-y'])
+finally:
+    from prettytable import Prettytable 
 
 #clase creda para tener la conexion a la base de datos lite
 class SQLite3Database(object):
